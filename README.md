@@ -29,6 +29,8 @@ The frontend uses a dynamic two-tier interface. Selecting a task automatically r
 | Oriented Boxes | Rotated Polygons | YOLO11n-OBB | Detects objects at various angles for tighter bounding |
 | Classification | Global Text Overlay | YOLO11n-Cls | Evaluates the entire frame and outputs a single categorical label |
 
+## Demo Video
+
 <p align="center">
   <img src="assets/demo.gif" alt="AI Vision Benchmark Engine Demo" width="100%">
 </p>
