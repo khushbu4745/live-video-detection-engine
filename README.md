@@ -29,12 +29,9 @@ The frontend uses a dynamic two-tier interface. Selecting a task automatically r
 | Oriented Boxes | Rotated Polygons | YOLO11n-OBB | Detects objects at various angles for tighter bounding |
 | Classification | Global Text Overlay | YOLO11n-Cls | Evaluates the entire frame and outputs a single categorical label |
 
-<p align="center">
-  <video width="100%" controls autoplay loop muted>
-    <source src="assets/demo_video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</p>
+<div align="center">
+  <video src="https://github.com/khushbu4745/live-video-detection-engine/raw/main/assets/demo_video.mp4" width="100%" controls autoplay loop muted></video>
+</div>
 
 ## Installation & Setup
 
