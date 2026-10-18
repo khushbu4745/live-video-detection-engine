@@ -14,7 +14,7 @@ The platform streams live webcam feeds and supports **zero-latency model hot-swa
 
 The backend follows a Domain-Driven Design (DDD) layout to keep the repository scannable and aligned with industry-standard Python conventions. Routing uses a **two-tier Factory Pattern**:
 
-1. **`VisionManager` (the Router):** a high-level controller that caches instantiated models in GPU VRAM (optimized for hardware like the H100) and routes WebSocket JSON payloads to the appropriate engine.
+1. **`VisionManager` (the Router):** a high-level controller that caches instantiated models in GPU VRAM and routes WebSocket JSON payloads to the appropriate engine.
 2. **Isolated Task Engines:** individual modules (`detection.py`, `segmentation.py`, `pose.py`, etc.) inherit from a strict `BaseVisionEngine` abstract class. This guarantees standardized JSON outputs regardless of the underlying ML framework (Ultralytics YOLO vs. Hugging Face Transformers).
 
 ## Supported Tasks & Models
@@ -28,6 +28,13 @@ The frontend uses a dynamic two-tier interface. Selecting a task automatically r
 | Pose Estimation | Skeletal Keypoints | YOLO11n-Pose | Maps 17 standardized human joints and connecting lines |
 | Oriented Boxes | Rotated Polygons | YOLO11n-OBB | Detects objects at various angles for tighter bounding |
 | Classification | Global Text Overlay | YOLO11n-Cls | Evaluates the entire frame and outputs a single categorical label |
+
+<p align="center">
+  <video width="100%" controls autoplay loop muted>
+    <source src="assets/demo_video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
 
 ## Installation & Setup
 
