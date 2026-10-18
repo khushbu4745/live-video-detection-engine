@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vision Benchmark Platform</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #38bdf8;
+            letter-spacing: 1px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: #1e293b;
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .tab:hover {
+            color: #e2e8f0;
+            background: #334155;
+        }
+
+        .tab.active {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 15px 25px;
+            background: #1e293b;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            font-weight: bold;
+            color: #94a3b8;
+        }
+
+        select, input, button {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: #e2e8f0;
+            font-size: 14px;
+        }
+
+        button {
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        #zeroShotControls {
+            display: none;
+            gap: 10px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            background: #000;
+            border: 2px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        video, canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>AI Vision Benchmark Engine</h2>
+
+    <div class="tabs" id="taskTabs">
+        <button class="tab active" data-task="detection">Object Detection</button>
+        <button class="tab" data-task="segmentation">Segmentation</button>
+        <button class="tab" data-task="pose">Pose Estimation</button>
+        <button class="tab" data-task="obb">Oriented Boxes</button>
+        <button class="tab" data-task="classification">Classification</button>
+    </div>
+
+    <div class="controls">
+        <label for="modelSelect">Active Engine:</label>
+        <select id="modelSelect">
+            <option value="standard">YOLO11 (Standard)</option>
+            <option value="rtdetr">RT-DETR (Transformer)</option>
+            <option value="world">YOLO-World (Zero-Shot)</option>
+            <option value="owlv2">OWLv2 (Zero-Shot)</option>
+        </select>
+
+        <div id="zeroShotControls">
+            <input type="text" id="classInput" placeholder="e.g. safety helmet, forklift" size="30">
+            <button id="updateBtn">Inject Prompt</button>
+        </div>
+    </div>
+
+    <div class="video-wrapper">
+        <video id="videoElement" autoplay playsinline muted></video>
+        <canvas id="canvasElement"></canvas>
+    </div>
+
+    <script src="/static/js/client.js"></script>
+</body>
+</html>

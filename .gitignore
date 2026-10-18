@@ -1,0 +1,17 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Model Weights (Keep these strictly local)
+models/*.pt
+models/owlv2/
+weights/
+# Python Cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
